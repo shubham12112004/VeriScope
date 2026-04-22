@@ -9,8 +9,11 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
     tanstackStart({
-      server: {
-        preset: 'vercel'
+      ssr: {
+        enabled: false,
+      },
+      spa: {
+        enabled: true,
       }
     }),
     react(),
