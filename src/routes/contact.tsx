@@ -1,4 +1,4 @@
-push timport { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MessageSquare, Send } from "lucide-react";
 import { AppShell } from "@/components/veriscope/AppShell";
 import { Button } from "@/components/ui/button";
