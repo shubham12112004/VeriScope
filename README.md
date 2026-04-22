@@ -1,81 +1,144 @@
-# VeriScope AI
+# 🔍 VeriScope AI
 
-VeriScope AI is a universal claim verification and misinformation detection platform. It accepts text, URLs, social-media claim descriptions, and optional file context, then returns an evidence-based verdict, confidence score, explanation, suspicious keyword scan, and supporting source links.
+**Analyze. Verify. Trust.**
 
-## Features
+🚀 Live Demo: https://veri-scope-eosin.vercel.app/
 
-- Multi-input claim analyzer: text, URL, social description, optional file upload
-- Authentication with email/password through Lovable Cloud
-- User dashboard with analysis history and verdict-frequency charts
-- Result page with True / False / Unverified verdicts
-- Confidence scoring and readable explanation
-- Evidence panel with clickable source links
-- Suspicious keyword highlighting
-- Saved/bookmarked analysis records
-- Admin review dashboard with secure role-based access control
-- Separate `user_roles` table for RBAC to avoid privilege escalation
-- Multilingual signal detection for common claim languages
-- Production-style schema, policies, validation constraints, and modular React architecture
+---
 
-## Architecture
+## 🚀 Overview
 
-This implementation uses the project’s production stack:
+VeriScope AI is a universal claim verification and misinformation detection platform designed to analyze rumors, news, and social media content. It accepts text, URLs, and social-media claim descriptions, then returns an evidence-based verdict, confidence score, explanation, suspicious keyword analysis, and supporting source links.
 
-- **Frontend:** React, TanStack Router, Tailwind CSS v4, shadcn-style components, Recharts
-- **Backend/Data:** Lovable Cloud database and auth
-- **Persistence:** Cloud-hosted relational tables for profiles, roles, analyses, and saved results
-- **Security:** Row-level access policies and backend role checks via `has_role()`
+---
 
-The originally requested MERN deployment model maps cleanly to this hosted architecture: Lovable Cloud replaces the manual Express/MongoDB/Auth hosting layer while preserving the same product capabilities.
+## ✨ Features
 
-## Data Model
+* 🔎 Multi-input claim analyzer (text, URL, social content)
+* ✅ Verdict classification: **True / False / Unverified**
+* 📊 Confidence score with visual indicators
+* 📚 Evidence panel with verified source links
+* 🧠 Explanation engine with keyword highlighting
+* 📈 Trend analysis for related claims
+* 👤 User authentication (secure login system)
+* 📂 Search history and saved/bookmarked reports
+* 🛠️ Admin dashboard with role-based access control
+* 🌐 Multilingual signal detection
+* ⚙️ Scalable and modular architecture
 
-- `profiles`: display name and language preference
-- `user_roles`: role assignments (`admin`, `moderator`, `user`)
-- `analyses`: input, extracted text, verdict, confidence, explanation, sources, keywords, status, overrides
-- `saved_analyses`: bookmarked result references
+---
 
-## API Route Plan
+## 🧠 How It Works
 
-For a standalone Express version, these routes map to the current app logic:
+1. User submits a claim, rumor, or link
+2. System extracts and processes text
+3. Fetches related data from multiple sources
+4. Analyzes consistency and credibility
+5. Generates:
 
-- `POST /auth/register` — create account
-- `POST /auth/login` — authenticate user
-- `POST /analysis/run` — normalize input, fetch evidence, score claim
-- `GET /analysis/history` — return user analysis history
-- `POST /analysis/save` — bookmark result
-- `GET /admin/dashboard` — monitor analysis volume and override queue
+   * Verdict (True / False / Unverified)
+   * Confidence Score
+   * Explanation
+   * Supporting Evidence
 
-## Claim Scoring Logic
+---
 
-- Multiple reliable-source signals and low conflict → **True**
-- Manipulative wording, unsupported phrasing, or contradiction markers → **False**
-- Sparse, conflicting, or ambiguous evidence → **Unverified**
+## 🛠️ Tech Stack
 
-## Environment Variables
+**Frontend**
 
-Lovable Cloud manages database and auth credentials automatically. If adding external evidence APIs later, store private keys as secure Lovable secrets rather than committing them to code.
+* React.js
+* Tailwind CSS
+* Framer Motion
 
-## Setup
+**Backend / Data**
 
-```bash
+* Lovable Cloud (Database + Auth)
+
+**Visualization**
+
+* Recharts
+
+**APIs**
+
+* News / Search APIs (extendable)
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash id="build1"
 npm install
 npm run dev
 ```
 
-## Screenshots
+---
 
-- Home analyzer: _placeholder_
-- Result page: _placeholder_
-- Dashboard charts: _placeholder_
-- Admin review queue: _placeholder_
+## 🌐 Deployment
 
-## Future Enhancements
+* Frontend → Vercel
+* Backend/Data → Lovable Cloud
 
-- OCR worker for image-based claims
-- Real search/news API evidence retrieval
-- AI/NLP explanation generation
-- Real-time collaborative review updates
-- Exportable verification reports
+---
 
-# VeriScope
+## 📂 Project Structure
+
+```id="struct1"
+veriscope-ai/
+├── frontend/
+├── backend/ (optional / logic layer)
+├── README.md
+```
+
+---
+
+## 🔐 Environment Variables
+
+Lovable Cloud manages authentication and database credentials securely.
+For external APIs, use environment variables or secret storage.
+
+---
+
+## 📊 Example Output
+
+* Verdict: ⚠️ Unverified
+* Confidence: 68%
+* Explanation: Conflicting information detected across multiple sources
+* Evidence: Mixed reports from different platforms
+
+---
+
+## 📸 Screenshots
+
+* Home Analyzer → *Add Screenshot*
+* Result Page → *Add Screenshot*
+* Dashboard → *Add Screenshot*
+* Admin Panel → *Add Screenshot*
+
+---
+
+## 🎯 Future Enhancements
+
+* OCR support for image-based claims
+* Real-time news/search API integration
+* AI/NLP-powered explanations
+* Browser extension support
+* Exportable verification reports
+
+---
+
+## 👨‍💻 Author
+
+Shubham Yadav
+
+---
+
+## ⭐ Contributing
+
+Contributions are welcome! Fork the repo and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
